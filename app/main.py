@@ -25,19 +25,14 @@ class Item(BaseModel):
     app_name: str
     unit_id: str
     request: str
+    revenue: str
+    imp: str
 
-
-def validate_json(json_data):
-    try:
-        json.loads(json_data)
-    except ValueError as err:
-        return False
-    return True
 
 
 @app.get("/")
 def read_root():
-    return {"Hello": "mtttm"}
+    return {"Hello": "mm"}
 
 
 @app.post("/items/")
