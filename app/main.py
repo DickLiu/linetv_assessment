@@ -107,11 +107,3 @@ class ItemJsonValidationSerivce(object):
                 print("item_json has invalid value: {}".format(self.error_msg))
         else:
             print("item_json is not a valid json format: {}".format(self.error_msg))
-
-
-
-
-
-
-
-
