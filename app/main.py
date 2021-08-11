@@ -7,48 +7,6 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-class Item(BaseModel):
-    """
-    expected json like below
-    {
-     "ad_network": "FOO",
-     "date": "2019-06-05",
-     "app_name": "LINETV",
-     "unit_id": "55665201314",
-     "request": "100",
-     "revenue": "0.00365325",
-     "imp": "23"
-     }
-    """
-    ad_network: str
-    date: str
-    app_name: str
-    unit_id: str
-    request: str
-
-
-def validate_json(json_data):
-    try:
-        json.loads(json_data)
-    except ValueError as err:
-        return False
-    return True
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "mtttm"}
-
-
-@app.post("/items/")
-async def create_item(item: Item):
-    return item
-
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Optional[str] = None):
-#     return {"item_id": item_id, "q": q}
-
-
 class ItemJsonValidationSerivce(object):
     def __init__(self, item_data):
         self.item_data = item_data
